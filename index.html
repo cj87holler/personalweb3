@@ -1,0 +1,234 @@
+<!DOCTYPE html> 
+<style type="text/css">
+/* Base reset for padding and margin for all elements */
+* {
+    padding: 0; 
+    margin: 0;
+    box-sizing: border-box;
+}  
+
+/* body styling */ 
+body {
+    font-family: 'Arial', sans-serif; 
+    line-height: 1.6; 
+    background-color: #f4f4f4; 
+} 
+
+/*Containter for centering the content */ 
+.container {
+    width: 80%; 
+    margin: auto; 
+    overflow: hidden; 
+    padding: 20px;  
+} 
+
+/* header styling */  
+header {
+    background: #333; 
+    color: #fff; 
+    padding: 20px; 
+    text-align: center; 
+} 
+
+/*header image and name styling */ 
+.headshot {
+    width: 150px; 
+    height: 150px; 
+    border-radius: 50%; 
+    display: block; 
+    margin: 20px auto; 
+} 
+
+header h1 {
+    margin-bottom: 10px; 
+}
+
+/*contact information styling */ 
+#contactInfo {
+    font-size: 1.1em; 
+    margin-bottom: 20px; 
+    color: #fff; 
+    padding: 15px; 
+} 
+
+/* section styling for employment, education and skills */ 
+section { 
+    background: #fff; 
+    margin: 20px 0; 
+    padding: 15px; 
+    border-radius: 8px; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+} 
+
+section h2 {
+    margin-bottom: 10px;
+} 
+/* timeline styling */  
+#timeline .entry {
+    border-left: 3px  solid #333; 
+    margin-bottom: 5px; 
+    cursor: pointer; 
+} 
+
+#timeline .entry-header {
+    background: #e2e2e2; 
+    padding: 10px; 
+    margin-left: -3px; 
+}
+
+#timeline .entry-header:hover {
+    background: #ccc; 
+    color: #333; 
+} 
+
+/* style for the job description content */ 
+
+#timeline .entry-content p {
+    padding: 5px 10px; 
+    background: #f9f9f9; 
+    border-left: 3px solid #333; 
+    display: block;  
+} 
+
+/* list styling for education and skills */ 
+section ul {
+    list-style: inside square; 
+    padding: 0 20px; 
+} 
+
+section ul li {
+    padding: 2px 0; 
+} 
+
+/* adjustments for active class */ 
+.entry.active .entry-header {
+    background-color: #e2e2e2; 
+    color: #333; 
+} 
+
+.entry.active .entry-content {
+    display: block; 
+} 
+
+/*visual cue for clickable items */ 
+.entry .entry-header:after {
+    content: ' (click to expand)'; 
+    font-size: 0.8em; 
+    color: #666; 
+} 
+
+.entry.active .entry-header:after {
+    content: ' (click to collapse)'; 
+    font-size: 0.8em; 
+    color: #666;  
+}
+
+/* link color*/ 
+a:link {
+    color: white;
+} 
+
+a:visited {
+    color: white; 
+}
+
+
+</style>
+
+<html lang="en"> 
+    <head>
+        <meta charset="UTF-8"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <title>C.J. Holler - Product Manager</title> 
+        <!--<link rel="stylesheet" href="styles.css">--> 
+    </head> 
+    <body>
+        <div class="container"> 
+            <header>
+                <img src="hollerhs.jpeg" alt="Headshot" class="headshot"> 
+                <h1 id="name">C.J. Holler</h1> 
+                <p id="contactInfo">Dallas, TX | <a href="mailto: cj87holler@gmail.com">Email</a> | <a href="https://www.linkedin.com/in/c-j-holler-04b0535b/" target="_blank">LinkedIn</a></p>
+            </header>
+            <section id="employmentHistory">
+                <h2>Experience</h2>
+                <div id="timeline"></div><!-- PLaceholder for the JavaScript Array-->
+            </section>
+            <section id="education">
+                <h2>Education</h2>
+                <ul>
+                    <li>Master of Business Administration, Concentration in Supply Chain Management | Baylor University (Expected Completion, Summer 2025)</li>
+                    <li>Bachelor of Science, Biology | Wheaton College (May 2013)</li>
+                    <!-- add more list items --> 
+                </ul>
+            </section> 
+            <section id="skills">
+                <h2>Distinctions</h2>
+                <ul>
+                    <li><b>Awards: </b>Making a Difference Award, Walmart, June 2023.</li>
+                    <li><b>Certifications: </b>Certified Scrum Master, AWS Solutions Architect Associate</li>
+                    <li><b>Technical Proficiency: </b>Development (HTML, CSS, React), UI/UX (Figma, Balsamic), Data Analysis (Excel, Tableau, Big Query), Project Management (MS 365, Jira, Confluence, Azure DevOps Server)</li> 
+                </ul>
+            </section>
+        </div> 
+        <script>// used on the resume to make the employement history clickable 
+            document.addEventListener('DOMContentLoaded', function () {
+                //placeholder array with employement history data 
+                const employmentHistory = [
+                    { id: 1, title: 'Staff Product Manager | Current', company: 'Walmart', years: '2021 - 2024', description: 'As the Lead Product Manager for Last Mile Delivery Trip Planning, I am responsible for managing the optimization engine responsible for 4+ Million Weekly Last Mile Deliveries. Implementing new geo-spatial technology and Machine Learning model, I spearheaded a customer eligibility initiative that expanded household coverage by 15%, contributing an estimated $1 billion in Gross Merchandise Volume. As part of a new business venture to externalize our Last Mile services, I improved the time-to-go-live for enterprise clients by 40%. I initially joined the company as a Senior Product Manager and was subsequently promoted to Staff Product Manager.'},
+                    { id: 2, title: 'Senior Product Manager', company: 'Devbridge', years: '2018 - 2021', description: 'Devbridge (acquired by Cognizant) builds custom enterprise applications that deliver measurable results for Global 2000 organizations and their customers across all industries. During my tenure there, I built 0 to 1 products spanning across financial and pharmaceutical services. Our cross-functional teams use deep expertise across product, design, and engineering to solve some of the most complex business challenges with elegant software 4x faster than the industry average. I began my time at Devbridge as an Associate Product Manager and was promoted twice, leaving as a Senior Product Manager.'},
+                    { id: 3, title: 'Product Manager', company: 'Club Automation', years: '2016 - 2018', description: 'Club Automation is an innovative club management system designed by club owners for club owners. Our team and technology experts have brought to market a system to help club operators run their business in the most efficient ways. As a Product Manager, I introduced dual-track scrum process with first UX team-member that led to increased backlog health and work-efficiency for front-end engineering team. I began my journey at Club Automation as a Quality Assurance analyst and was promoted to Product Manager.'}, 
+                    { id: 4, title: 'Educator', company: 'Texas and Illinois Schools', years: '2013 - 2016', description: 'Taught general & life sciences at varying grade levels. Through data-driven instruction based on competency assessment, my students scored 3x the national average on 7th grade assessment. Completed a Coding Bootcamp focused on Python and made career shift to Product Management.' } 
+                    // add more entries as needed  
+                ];  
+            
+                const timeline = document.getElementById('timeline'); 
+            
+                //Create timeline entries 
+                employmentHistory.forEach(job => {
+                    //entry container for job 
+                    const entry = document.createElement('div'); 
+                    entry.className = 'entry'; 
+                    entry.id = 'entry-' + job.id; 
+            
+                    //Title header for job 
+                    const header = document.createElement('div'); 
+                    header.className = 'entry-header'; 
+                    header.innerText = job.title; 
+            
+                    //content container for job, initially hidden 
+                    const content = document.createElement('div'); 
+                    content.className = 'entry-content'; 
+                    content.innerHTML = `<strong>Company:</strong> ${job.company}<br>
+                                        <strong>Years:</strong> ${job.years}<br>
+                                        <p>${job.description}</p>`;  
+                    content.style.display ='none'; 
+            
+                    //apend header and content to the entry 
+                    entry.appendChild(header); 
+                    entry.appendChild(content);  
+            
+                    //event listenr to toggle content visibility 
+                    header.addEventListener('click', function (){
+                        const isContentShown = content.style.display === 'block'; 
+                        //hide all open content 
+                        document.querySelectorAll('.entry-content').forEach(el => {
+                            el.style.display = 'none'; //hide content 
+                        });  
+                        //deactivate all headers 
+                        document.querySelectorAll('.entry').forEach(el => {
+                            el.classList.remove('active'); //remove active class
+                        });  
+            
+                        if (!isContentShown) {
+                            //if it was not shown before, display it 
+                            content.style.display = 'block'; 
+                            entry.classList.add('active'); 
+                        } //if it was shown, it will be hidden as part of the above loop 
+                    });
+            
+                    timeline.appendChild(entry); 
+            
+                }); 
+            }); </script>    
+    </body>  
+    </html>
